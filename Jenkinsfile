@@ -2,6 +2,9 @@ pipeline {
 
 agent any
 
+environment{
+	RELEASE='20.04'
+}
 
 stages {
 
@@ -9,7 +12,7 @@ stages {
 
 			steps{
 			
-				echo 'building the application...'
+				echo 'building the application ${RELEASE} with log level ${LOG_LEVEL}'
 			
 			}
 
