@@ -26,7 +26,8 @@ stages {
 		
 			steps{
 			
-				echo 'testing the application....'
+				echo "Testing release ${RELEASE}"
+				writeFile file: 'test-results.txt', text: 'passed'
 			}
 		
 		}
@@ -50,8 +51,8 @@ stages {
 
 	}
 	post{
-		always{
-			echo "Prints whether deploy happened or not."
+		success{
+			archiveArtifacts 'test-results.txt'
 		}
 	}
 
