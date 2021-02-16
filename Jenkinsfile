@@ -32,15 +32,27 @@ stages {
 		}
 		
 		stage('deploy'){
+		input{
+			message 'Deploy?'
+			ok 'Do it!'
+			parameters{
+				string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment envioronment')
+			}
+		}
 		
 			steps{
 			
-				echo 'deploying the application...'
+				echo "Deploying release ${RELEASE} to environment ${TARGET_ENVIRONMENT}"
 			
 			}
 			
 		}
 
+	}
+	post{
+		always{
+			echo "Prints whether deploy happened or not."
+		}
 	}
 
 }
