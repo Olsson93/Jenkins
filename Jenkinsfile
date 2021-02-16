@@ -12,7 +12,7 @@ stages {
 
 			steps{
 			
-				echo 'building the application ${RELEASE} with log level ${LOG_LEVEL}'
+				echo "building the application ${RELEASE} with log level ${LOG_LEVEL}"
 			
 			}
 
