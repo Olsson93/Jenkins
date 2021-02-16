@@ -9,6 +9,10 @@ environment{
 stages {
 
 	stage("build"){
+	
+			environment {
+				LOG_LEVEL='INFO'
+			}
 
 			steps{
 			
